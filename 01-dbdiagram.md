@@ -41,7 +41,7 @@ O [segundo migration](https://github.com/filipedeschamps/tabnews.com.br/blob/mai
 
 ![image](https://user-images.githubusercontent.com/1509692/208113830-620e088c-a135-4e44-952f-1c4f60a69898.png)
 
-Novamente deixo apenas a imagem para que você possa digitar e ver a tabela sendo criada. Como podemos ver, existe um relacionamento um para muitos de `activate_account_tokens` para `users`. Ou seja, um `user` pode ter vários `activate_account_tokens`. Para representar isso no diagrama, usamos o atributo `ref`, da seguinte forma:
+Novamente deixo apenas a imagem para que você possa digitar e ver a tabela sendo criada. Como podemos ver, existe um relacionamento um para muitos de `users` para `activate_account_tokens`. Ou seja, um `user` pode ter vários `activate_account_tokens`. Para representar isso no diagrama, usamos o atributo `ref`, da seguinte forma:
 
 ```
 Table activate_account_tokens {
@@ -56,6 +56,8 @@ Veja que no campo `user_id`, adicionarmos a nomenclatura `[ref: > users.id]` con
 Para representar um relacionamento "um para um", ao invés do `>` usamos `-`. Experimente trocar lá e ver o que acontece.
 
 De posse desse diagrama até agora, você já consegue olhar os outros migrations e montar a sua versao DTR do tabnews! Fica como dever de casa postar como ficou nos comentários! A verão mais bonita ganha o selo delicinha do @filipedeschamps
+
+A versão free suporta até 10 diagramas, e exportar para png/mysql. A [documentação](https://dbdiagram.io/docs/) contém tudo que vc precisa saber para criar opções mais avançadas de diagramas.
 
 
 
