@@ -49,9 +49,19 @@ Table activate_account_tokens {
 }
 ```
 
-Veja que no campo user_id, adicionarmos a nomenclatura `[ref: > users.id]` configurando assim o relacionamento. O resultado é exibido a seguir:
+Veja que no campo `user_id`, adicionarmos a nomenclatura `[ref: > users.id]` configurando assim o relacionamento. O resultado é exibido a seguir:
 
 ![](https://user-images.githubusercontent.com/1509692/208115100-d2d86e04-4d48-4742-b8a4-ada47347adda.png)
+
+Para representar um relacionamento "um para um", ao invés do `>` usamos `-`. Experimente trocar lá e ver o que acontece.
+
+De posse desse diagrama até agora, você já consegue olhar os outros migrations e montar a sua versao DTR do tabnews! Fica como dever de casa postar como ficou nos comentários! A verão mais bonita ganha o selo delicinha do @filipedeschamps
+
+
+
+
+
+
 
 
 
