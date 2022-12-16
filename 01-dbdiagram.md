@@ -30,3 +30,11 @@ Ao acessar [o primeiro migration](https://github.com/filipedeschamps/tabnews.com
 - created_at (date)
 - updated_at (date)
 
+Vamos então criar essa tabela no dbdiagram:
+
+
+![](https://user-images.githubusercontent.com/1509692/208112719-0aa64e56-b892-4abe-957d-5d2db64ad21a.png)
+
+Asssim que começamos a escrever a estrutura da tabela, o seu diagrama começa a ser desenhado. Eu nao vou colar aqui a estrutura em modo texto, para que você mesmo possa digitar e ver como a ferramenta funciona. 
+
+
