@@ -10,9 +10,23 @@ Do lado ESQUERDO, temos uma representação em texto das tabelas. E do lado DIRE
 
 ## Começando
 
-Você pode criar uma conta para assim poder guardar seus diagramas, ou começar imediatamente a criar um diagrama clicando no botão `go to app`. Ao clicar nele, um diagrama é prontamente criado. Vamos então "limpar" esse diagrama da melhor forma, selecionando todo o texto à esqueda da tela e apertando delete (ou backspace se for for conta as regras da sociedade)
+Você pode criar uma conta para assim poder guardar seus diagramas, ou começar imediatamente a criar um diagrama clicando no botão `go to app`. Ao clicar nele, um diagrama é prontamente criado. Vamos então "limpar" esse diagrama da melhor forma, selecionando todo o texto à esqueda da tela e apertando delete (ou backspace se for for contra as regras da sociedade)
 
-Temos agora um diagrama vazio, no limbo
+Temos agora um diagrama vazio, no limbo:
 
+![](https://user-images.githubusercontent.com/1509692/208110090-99c58f2d-ba85-42dc-b64d-0da9bc920da4.png)
 
+## Criando o tabnews
+
+Como o site é open source, podemos dar uma 👀 na sua estrutura de tabelas e fazer um diagrama de tabelas. Fica aqui o "dever de casa" para você fazer o diagrama e mandar um PR para o repositório, assim é possível ver de forma visual a estrutura das tabelas. Bora lá! 
+
+Ao acessar [o primeiro migration](https://github.com/filipedeschamps/tabnews.com.br/blob/main/infra/migrations/1632278997051_create-user-table.js) que cria a tabela users, podemos extrair os seguintes campos:
+
+- id (uuid)
+- username (varchar)
+- email (varchar)
+- password (varchar)
+- features (varchar)
+- created_at (date)
+- updated_at (date)
 
