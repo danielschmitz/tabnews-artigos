@@ -76,7 +76,7 @@ Entre no diretório `api-node` recem criado e faça um `ls` para ver os arquivos
 
 Como podemos ver, os arquivos iniciais do projeto foram copiados para a sua maquina, e você está no branch `main`
 
-## branches, branches, branches!
+### branches, branches, branches!
 
 Eu recmendo que você crie branches para tudo no seu projeto. Cada funcionalidade uma branch. Desse modo, o branch principal, o "main" será sempre um branch estável no projeto. Vou mostrar aqui o processo para você criar o primeiro branch, e depois fica contingo a responsabilidade de criar outros
 
@@ -84,7 +84,7 @@ Eu recmendo que você crie branches para tudo no seu projeto. Cada funcionalidad
 
 Neste novo branch, vamos criar a estrutura inicial do node
 
-## Estrutura inicial do NodeJS
+### Estrutura inicial do NodeJS
 
 O NodeJS, quando instalado, traz o pacote `NPM` que pode ser usado para algumas funcionalidades bem interessantes. Uma delas é criar o arquivo `package.json` que é usado para estruturar o seu projeto "Node", contendo informações do projeto e bibliotecas usadas. Para criar esse arquivo, utilize o comando `npm init`.
 
@@ -120,7 +120,7 @@ O GitHub já entendeu que um novo branch foi criado, e lhe adiciona a possibilid
 
 Ao alterar o branch (no detalalhe da seta acima), podemos ver o arquivo `package.json`.
 
-## Voltando ao package.json
+### Voltando ao package.json
 
 Ao abrirmos o arquivo `package.json` no vscode, temos:
 
@@ -138,7 +138,7 @@ Até aqui tudo bem.  O arquivo não existe, é para dar erro mesmo. Você també
 
 ![image](https://user-images.githubusercontent.com/1509692/214840764-318ca88d-604e-4d77-b43a-19df397cba4b.png)
 
-## Criando o arquivo index.js
+### Criando o arquivo index.js
 
 Para que o comando `npm run dev` funcione, precisamos criar o arquivo `src/index.js`. Eu sempre gostei de deixar os arquivos de código na pasta `src` (de source code), e os arquivos e configuração de projeto fora dele. Para mim, fica visualmente melhor. Claro que essa é uma escolha que você pode alterar.
 
@@ -150,7 +150,7 @@ Eu gosto de criar arquivos no próprio vscode. Na aba explorer, clico no `new fi
 
 ![image](https://user-images.githubusercontent.com/1509692/214842000-ea96c496-d6b3-413e-8a21-44655e6c2d76.png)
 
-### Hello World
+#### Hello World
 
 No arquivo `src/index.js`, adicionamos uma mensagem de "hello world":
 
@@ -160,7 +160,7 @@ Ao executar novamente o comando `npm run dev` no terminal, temos a resposta. Tam
 
 ![image](https://user-images.githubusercontent.com/1509692/214842514-dc2ee31d-1678-4415-a08f-b173cc1d78ef.png)
 
-## Modo "watch"
+### Modo "watch"
 
 A partir do Node 18, temos o modo "watch" que vai re-executar o código sempre que houver uma modificação no código fonte. Aletere o `package.json` para:
 
@@ -170,7 +170,7 @@ E execute novamente `npm run dev` no terminal. Faça qualquer alteração no arq
 
 ![image](https://user-images.githubusercontent.com/1509692/214843047-cb793cc4-6c3c-4ad8-a476-7c09431791a2.png)
 
-## Finalizando o branch
+### Finalizando o branch
 
 Temos agora um projeto funcionado, mesmo que seja com um "Hello World". Chegou a hora de comitar & pushar tudo:
 
@@ -197,10 +197,44 @@ Como podemos ver no detalhe, existem 3 alterações no servidor remoto que preci
 
 ![image](https://user-images.githubusercontent.com/1509692/214845171-24a0b22a-e4c8-4963-b212-ee6381b4179e.png)
 
+## Criando o servidor web
 
+Nosso propósito nao é exibir um "hello world" no console. O que precisamos fazer agora é criar uma API que, quando acessarmos o endereço "/hello-world" o navegador responda com a seguinte mensagem:
 
+```json
+{ "mensagem": "hello world" }
+```
 
+Basicamente, tudo que iremos aprender nesse tutorial é responder uma mensagem (em formato JSON) a uma requisição. Vamos começar então criando um novo branch:
 
+![image](https://user-images.githubusercontent.com/1509692/214847218-dab8aea9-82f3-497a-9278-dd7960bc0a2e.png)
+
+### Adicionando o Expressjs
+
+Para o servidor web, usamos o [ExpressJS](https://expressjs.com/pt-br/). Ele é simples de usar e cumpre bem nosso propósito. Para isso, no terminal, execute o seguinte comando:
+
+![image](https://user-images.githubusercontent.com/1509692/214847616-a48d21bc-a435-4f8b-a6d9-db2945e53c3e.png)
+
+O comando `npm install express` instalou a biblioteca express, e além disso, alterou o arquivo `package.json`, adicionando a configuração de dependencias: 
+
+![image](https://user-images.githubusercontent.com/1509692/214847910-242aa2bc-072b-4ff7-8b8b-561bc30ad389.png)
+
+Com isso, se você quiser usar o projeto em um outro computador, poderá instalar todas as dependencias de uma forma bem simples! veremos isso mais no final do tutorial.
+
+Com o express instalado, podemos editar o arquivo `src/index.js` adicinando o seguinte código:
+
+```js
+var express = require('express');
+var app = express()
+
+app.get('/hello-world', function(req, res, next) {
+    return res.json('{mensagem:"hello world"}');
+})
+
+app.listen(3000, function() {
+    console.log('Express server listening on port 3000');
+})
+```
 
 
 
