@@ -247,6 +247,98 @@ O próximo código é um `app.listen`, que configura a porta 3000 para "ouvir" q
 ![image](https://user-images.githubusercontent.com/1509692/214862503-ff90cf36-8ee7-42af-a5aa-0671658d29b8.png)
 
 
+### Configurando o REST Client
+
+![image](https://user-images.githubusercontent.com/1509692/214910635-ad6be264-e3c2-4f9c-a20e-0d6b52035d05.png)
+
+O REST Client é uma extensão do VSCode para que se possa executar chamadas GET (entre outras) diretamente do vscode, sem a necessidade de se utilizar um navegador.
+
+Instale a extensão, e então crie um arquivo chamado `api.http`, inicialmente com o seguinte código:
+
+```
+GET http://localhost:3000/hello-world
+
+```
+
+Após criar a instrução GET, surge um link chamado "Send Request" acima do GET. Clique nesse link para obter a resposta, como mostrado a seguir:
+
+![image](https://user-images.githubusercontent.com/1509692/214911527-6db0ccfe-3382-4ef6-a544-61d789ed584f.png)
+
+Veja que foi realizada uma requisição GET a url, e a resposta foi a mesma do que se tivessemos digitado o endereço no navegador.
+
+Vamos fazer uma pequena modificação adicionando a variável "host", da seguinte forma:
+
+```
+@host = http://localhost:3000
+
+GET {{host}}/hello-world
+```
+
+Assim, não é necessário digitar a url em todas as requisições.
+
+## Criando mais rotas
+
+Como uma API Rest possui muitas rotas, nao é muito legal criar todas elas no arquivo `index.js`. Podemos separar as rotas de acordo com suas funcionalidades. Por exemplo, as rotas de autenticação ficariam no arquivo `auth.js`, as rotas das categorias das tarefas, em `categories`. E assim vai..
+
+Existem algumas dezenas de formas de se fazer isso. Mas, como estamos indo pela forma mais simples
+possível, vamos apenas adicionar as rotas manualmente no arquivo `index.js`. Primeiro, crie os seguintes arquivos:
+
+- src/api/auth.js
+- src/api/categories.js
+
+Agora, podemos adicionar estas rotas ao arquivo `src/index.js` da seguinte forma
+
+```js
+var express = require('express');
+var app = express()
+
+app.get('/hello-world', function(req, res, next) {
+    return res.json({
+        mensagem: "hello world"
+    });
+})
+
+app.use('/api/auth', require('./api/auth'));
+
+app.listen(3000, function() {
+    console.log('Express server listening on port 3000');
+})
+```
+
+Usamos aqui o método `use` do express para relacionar uma determinada rota "/api/auth" ao arquivo "/api/auth". Se você executar esse código terá um erro, mais ou menos assim:
+
+*TypeError: Router.use() requires a middleware function but got a Object*
+
+Isso acontece porque o Router.use espera uma função na qual ele saiba lidar. E no caso isso nao aconteceu. Vamos editar agora o arquivo `src/api/auth.js` para configurar corretamente o router.
+
+```js
+const express = require('express');
+const router = express.Router()
+
+router.get('/hello-world', function(req, res, next) {
+    return res.json({ message: 'hello world from /api/auth' }); endif
+})
+
+module.exports = router
+```
+
+O que fizemos aqui iremos fazer em toda a nossa api. Importar o express, pegar a instancia do Router, configurar algumas chamadas, e no final exportar o router pelo `module.exports` para que o require funcione. Apesar de termos `router.get('/hello-world'`, lembre-se que esse arquivo foi adicionado ao router pelo comando `app.use('/api/auth', require('./api/auth'))` no `src/index.js`, então a chamada a api deve ser `/api/auth/hello-world`. 
+
+Vamos editar novamente o arquivo `api.http` adicionando esta rota:
+
+```
+@host = http://localhost:3000
+
+GET {{host}}/hello-world
+
+###
+
+GET {{host}}/api/auth/hello-world
+```
+
+A respotsa é semelhante a figura a seguir:
+
+![image](https://user-images.githubusercontent.com/1509692/214917789-404ba593-9be8-4320-ba8e-eb0933952f89.png)
 
 
 
