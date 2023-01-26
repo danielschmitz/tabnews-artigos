@@ -32,6 +32,7 @@ Na sua máquina, você precisa do seguinte:
 
 - NODEJS: versão 18 pra cima
 - GIT:  com aquele git bash (Quando eu falar "abra o terminal", é o git bash)
+- Uma conta no github
 - VSCODE: editor de textos 
 
 ## Começando
