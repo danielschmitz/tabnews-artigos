@@ -78,6 +78,43 @@ Como podemos ver, os arquivos iniciais do projeto foram copiados para a sua maqu
 
 ## branches, branches, branches!
 
+Eu recmendo que você crie branches para tudo no seu projeto. Cada funcionalidade uma branch. Desse modo, o branch principal, o "main" será sempre um branch estável no projeto. Vou mostrar aqui o processo para você criar o primeiro branch, e depois fica contingo a responsabilidade de criar outros
+
+![image](https://user-images.githubusercontent.com/1509692/214833266-88d7d4fb-dd25-40ed-a774-b3a3d44dee08.png)
+
+Neste novo branch, vamos criar a estrutura inicial do node
+
+## Estrutura inicial do NodeJS
+
+O NodeJS, quando instalado, traz o pacote `NPM` que pode ser usado para algumas funcionalidades bem interessantes. Uma delas é criar o arquivo `package.json` que é usado para estruturar o seu projeto "Node", contendo informações do projeto e bibliotecas usadas. Para criar esse arquivo, utilize o comando `npm init`.
+
+![image](https://user-images.githubusercontent.com/1509692/214834838-4bf3aff9-4072-4a3a-b8d9-7c006e37a0e8.png)
+
+Após responder algumas questões, o arquivo `package.json` é criado! Para vê-lo, vamos usar o vscode:
+
+![image](https://user-images.githubusercontent.com/1509692/214835302-5de0b8e9-2185-42ab-b3be-569ead574ec1.png)
+
+### VSCode e Git
+
+O comando `code .` dentro do diretório `api-node` abre o Visual Studio Code, semelhante a figura a seguir:
+
+![image](https://user-images.githubusercontent.com/1509692/214836193-fd3933c1-3043-4208-9793-c99d437cd17b.png)
+
+As setas indicam informações sobre o Git. La em baixo temos o branch ativo, na direita a abinha "git" e o nome `package.json` está em verde porque indica que um arquivo está modificado.
+
+Ao clicar na abinha `git`, temos:
+
+![image](https://user-images.githubusercontent.com/1509692/214836552-08c9ed6e-733a-4b0e-a0ee-1ad87bd66a52.png)
+
+Adicionamos um comentário e clicamos no botão `Commit`. Para enviar todas essas informações ao github, podemos pelo próprio VScode clicar no botão `publish`:
+
+![image](https://user-images.githubusercontent.com/1509692/214836955-3b145feb-3fbe-401b-965e-201c3e4825d9.png)
+
+
+
+
+
+
 
 
 
