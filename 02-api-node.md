@@ -221,14 +221,16 @@ O comando `npm install express` instalou a biblioteca express, e além disso, al
 
 Com isso, se você quiser usar o projeto em um outro computador, poderá instalar todas as dependencias de uma forma bem simples! veremos isso mais no final do tutorial.
 
-Com o express instalado, podemos editar o arquivo `src/index.js` adicinando o seguinte código:
+Com o express instalado, podemos alterar o arquivo `src/index.js` adicinando o seguinte código:
 
 ```js
 var express = require('express');
 var app = express()
 
 app.get('/hello-world', function(req, res, next) {
-    return res.json('{mensagem:"hello world"}');
+    return res.json({
+        mensagem: "hello world"
+    });
 })
 
 app.listen(3000, function() {
@@ -236,8 +238,13 @@ app.listen(3000, function() {
 })
 ```
 
+Como instalamos a biblioteca `express`, podemos utilizá-la através do comando `require`. Neste ponto, criamos a variável `app` que é uma instância
+do express, e podemos usar essa variável para configurar o que chamamos de "rotas". Por exemplo, `app.get('/hello-world',....` configura uma rota para o acesso
+GET à `/hello-world`. ou seja, se digitar no navegador `http://<url>/hello-word`, o código dentro do `app.get()` será executado. Neste caso, o código retorna um `res.json` que é uma forma de retornar *json* a quem o chamou. 
 
+O próximo código é um `app.listen`, que configura a porta 3000 para "ouvir" qualquer requisição. Então, no navegador podemos acessar `http://loscalhost:3000/hello-world` para se obter a resposta `{ mensagem: "hello world" }`
 
+![image](https://user-images.githubusercontent.com/1509692/214862503-ff90cf36-8ee7-42af-a5aa-0671658d29b8.png)
 
 
 
