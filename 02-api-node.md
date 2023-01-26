@@ -45,12 +45,12 @@ Abra o github e clique em "New Repository". Crie o seu repo com os seguintes par
 
 Como podemos ver, escolhemos:
 
-1- O nome do projeto: api-node
-2- Uma descrição do projeto
-3- Definimos o projeto como público (melhor para seu curriculo)
-4- Selecionamos para adicionar um README.md
-5- Selecionaos para adcionar um .gitignore com NODE
-6- Selecionaos a licença MIT.
+- O nome do projeto: api-node
+- Uma descrição do projeto
+- Definimos o projeto como público (melhor para seu curriculo)
+- Selecionamos para adicionar um README.md
+- Selecionaos para adcionar um .gitignore com NODE
+- Selecionaos a licença MIT.
 
 Após criar o repositório, você verá algo assim:
 
@@ -70,7 +70,7 @@ git clone <url do seu repositório>
 
 ![image](https://user-images.githubusercontent.com/1509692/214825183-3ae6d793-2587-4619-81d8-264546d2fb85.png)
 
-Entre no diretório `api-node` recem criado e fala um `ls` para ver os arquivos:
+Entre no diretório `api-node` recem criado e faça um `ls` para ver os arquivos:
 
 ![image](https://user-images.githubusercontent.com/1509692/214825335-4f9d7bb4-0319-4239-b72b-4783baff92c3.png)
 
