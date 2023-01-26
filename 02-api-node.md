@@ -110,6 +110,94 @@ Adicionamos um comentário e clicamos no botão `Commit`. Para enviar todas essa
 
 ![image](https://user-images.githubusercontent.com/1509692/214836955-3b145feb-3fbe-401b-965e-201c3e4825d9.png)
 
+A medida que você fizer modificações nos arquivos, pode ir sempre realizando o commit e o push. Ao retornar no github, você verá algo assim:
+
+![image](https://user-images.githubusercontent.com/1509692/214837277-35d8e6e9-948a-4816-94bd-05f2b8cbc19c.png)
+
+O GitHub já entendeu que um novo branch foi criado, e lhe adiciona a possibilidade de realizar um `pull request` que é uma forma de "juntar" o que está no branch novo ao branch main. Veja que o arquivo `package.json` nao está presente no repositório, mas isso é porque está se exibindo o branch `main`. 
+
+![image](https://user-images.githubusercontent.com/1509692/214837748-9d9de292-d330-4705-905a-dfba7407441f.png)
+
+Ao alterar o branch (no detalalhe da seta acima), podemos ver o arquivo `package.json`.
+
+## Voltando ao package.json
+
+Ao abrirmos o arquivo `package.json` no vscode, temos:
+
+![image](https://user-images.githubusercontent.com/1509692/214838631-a2a3adf9-77ea-4f17-bf72-b45abae1c3f8.png)
+
+Temos aqui várias informações sobre o projeto. Por enquanto, vamos dar uma olhada no `scripts`. Tem-se a configuração para "test", nao qual iremos removê-la! Não vamos fazer testes nesse projeto. Vamos trocar "test" para "dev" com o seguinte texto:
+
+![image](https://user-images.githubusercontent.com/1509692/214839254-aa623ee1-9390-4347-ab6a-cc08490532e0.png)
+
+O comando `dev` executa o arquivo `src/index.js` (sim, ainda nao o criamos). Repare na palavra `Debug` logo acima do `scripts`, clique nela para executar o comando `dev`, ocasionando no seguinte erro:
+
+![image](https://user-images.githubusercontent.com/1509692/214839832-e58dd195-0549-44b7-8906-4ae267c42759.png)
+
+Até aqui tudo bem.  O arquivo não existe, é para dar erro mesmo. Você também pode executar o comando pelo terminal, usando o seguinte comando:
+
+![image](https://user-images.githubusercontent.com/1509692/214840764-318ca88d-604e-4d77-b43a-19df397cba4b.png)
+
+## Criando o arquivo index.js
+
+Para que o comando `npm run dev` funcione, precisamos criar o arquivo `src/index.js`. Eu sempre gostei de deixar os arquivos de código na pasta `src` (de source code), e os arquivos e configuração de projeto fora dele. Para mim, fica visualmente melhor. Claro que essa é uma escolha que você pode alterar.
+
+Eu gosto de criar arquivos no próprio vscode. Na aba explorer, clico no `new file` e jpa digito `src/index.js`. O próprio vscode irá criar o diretório src.
+
+![image](https://user-images.githubusercontent.com/1509692/214841799-67814337-3c3c-4124-92be-b6d2e2444f7c.png)
+
+![image](https://user-images.githubusercontent.com/1509692/214841858-3e460968-cf45-4da2-8c69-dd45e2abeba6.png)
+
+![image](https://user-images.githubusercontent.com/1509692/214842000-ea96c496-d6b3-413e-8a21-44655e6c2d76.png)
+
+### Hello World
+
+No arquivo `src/index.js`, adicionamos uma mensagem de "hello world":
+
+![image](https://user-images.githubusercontent.com/1509692/214842261-c4ebc8c4-8405-4bd4-9c11-f389352cc3e5.png)
+
+Ao executar novamente o comando `npm run dev` no terminal, temos a resposta. Também podemos clicar no botão `Debug` se o arquivo `package.json` estiver aberto:
+
+![image](https://user-images.githubusercontent.com/1509692/214842514-dc2ee31d-1678-4415-a08f-b173cc1d78ef.png)
+
+## Modo "watch"
+
+A partir do Node 18, temos o modo "watch" que vai re-executar o código sempre que houver uma modificação no código fonte. Aletere o `package.json` para:
+
+![image](https://user-images.githubusercontent.com/1509692/214842923-3230b050-0931-4c1b-8958-6e65978506b6.png)
+
+E execute novamente `npm run dev` no terminal. Faça qualquer alteração no arquivo `index.js` e veja o comando sendo executado novamente:
+
+![image](https://user-images.githubusercontent.com/1509692/214843047-cb793cc4-6c3c-4ad8-a476-7c09431791a2.png)
+
+## Finalizando o branch
+
+Temos agora um projeto funcionado, mesmo que seja com um "Hello World". Chegou a hora de comitar & pushar tudo:
+
+![image](https://user-images.githubusercontent.com/1509692/214843425-ee183c8f-bcdb-4f5d-9eef-2fdc1a829998.png)
+
+Retornando ao gitHub, temos:
+
+![image](https://user-images.githubusercontent.com/1509692/214843538-5858e183-3f7f-4cf5-92b4-d6d62acf46c1.png)
+
+Podemos usar o github para criar um pullrequest do branc que criamos para o main. Basta seguir o fluxo. Após fazer o pull request, pode-se deletar o branch. O resultado final é:
+
+![image](https://user-images.githubusercontent.com/1509692/214844350-19142acc-d2d0-4fe1-aace-9bd6a9d3b408.png)
+
+Já no vscode, clique no branch:
+
+![image](https://user-images.githubusercontent.com/1509692/214844576-531e74f8-4fad-46a1-aaf8-7eb1fbd24b93.png)
+
+
+e selecione o "main". você perceberá que os arquivos package.json e index.js sumiram! Calma:
+
+![image](https://user-images.githubusercontent.com/1509692/214844785-e2d962a2-9b95-405d-b3de-520086b4e6c4.png)
+
+Como podemos ver no detalhe, existem 3 alterações no servidor remoto que precisam ser atualizadas. basta clicar no botão "sync" 🔄 para sincroniar a sua base com a base remota. Assim que você fizer isso, os arquvios estarão atualizados.
+
+![image](https://user-images.githubusercontent.com/1509692/214845171-24a0b22a-e4c8-4963-b212-ee6381b4179e.png)
+
+
 
 
 
